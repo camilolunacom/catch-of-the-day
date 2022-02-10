@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ref, onValue, update } from 'firebase/database';
+import { useState } from 'react';
+// import { ref, onValue, update } from 'firebase/database';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
@@ -7,11 +7,11 @@ import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
 // import firebaseDB from '../base';
 
-const App = (props) => {
+const App = () => {
   const [fishState, setFishState] = useState({});
   const [orderState, setOrderState] = useState({});
 
-  const { storeId } = props.match.params;
+  // const { storeId } = props.match.params;
 
   // useEffect(() => {
   //   const fishesRef = ref(firebaseDB, `${storeId}/fishes`);
