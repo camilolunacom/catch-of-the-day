@@ -5,7 +5,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
-import firebaseDB from '../base';
+// import firebaseDB from '../base';
 
 const App = (props) => {
   const [fishState, setFishState] = useState({});
@@ -13,22 +13,22 @@ const App = (props) => {
 
   const { storeId } = props.match.params;
 
-  useEffect(() => {
-    const fishesRef = ref(firebaseDB, `${storeId}/fishes`);
-    onValue(fishesRef, (snapshot) => {
-      if (snapshot.val()) setFishState(snapshot.val());
-    });
-    setOrderState(JSON.parse(localStorage.getItem(storeId)));
-  }, [storeId]);
+  // useEffect(() => {
+  //   const fishesRef = ref(firebaseDB, `${storeId}/fishes`);
+  //   onValue(fishesRef, (snapshot) => {
+  //     if (snapshot.val()) setFishState(snapshot.val());
+  //   });
+  //   setOrderState(JSON.parse(localStorage.getItem(storeId)));
+  // }, [storeId]);
 
-  useEffect(() => {
-    const fishesRef = ref(firebaseDB, `${storeId}/fishes`);
-    update(fishesRef, fishState);
-  }, [fishState, storeId]);
+  // useEffect(() => {
+  //   const fishesRef = ref(firebaseDB, `${storeId}/fishes`);
+  //   update(fishesRef, fishState);
+  // }, [fishState, storeId]);
 
-  useEffect(() => {
-    localStorage.setItem(storeId, JSON.stringify(orderState));
-  }, [storeId, orderState]);
+  // useEffect(() => {
+  //   localStorage.setItem(storeId, JSON.stringify(orderState));
+  // }, [storeId, orderState]);
 
   const addFish = (fish) => {
     // 1. Use spread operator to grab what existed before, and then add the new fish
