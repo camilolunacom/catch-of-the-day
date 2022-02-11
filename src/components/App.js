@@ -46,7 +46,11 @@ const App = () => {
   };
 
   const deleteFish = (key) => {
-    setFishState((prevState) => ({ ...prevState, [key]: undefined }));
+    setFishState((prevState) => {
+      const fishes = { ...prevState };
+      delete fishes[key];
+      return fishes;
+    });
   };
 
   const loadSampleFishes = () => {
